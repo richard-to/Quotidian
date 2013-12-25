@@ -22,6 +22,7 @@
 		EFDA4AD1186B9AA300E2C7D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDA4AB0186B9AA300E2C7D6 /* UIKit.framework */; };
 		EFDA4AD9186B9AA300E2C7D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFDA4AD7186B9AA300E2C7D6 /* InfoPlist.strings */; };
 		EFDA4ADB186B9AA300E2C7D6 /* QuotidianTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA4ADA186B9AA300E2C7D6 /* QuotidianTests.m */; };
+		EFDA4AE6186BA02B00E2C7D6 /* QuotidianTaskTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA4AE5186BA02B00E2C7D6 /* QuotidianTaskTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		EFDA4AD6186B9AA300E2C7D6 /* QuotidianTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuotidianTests-Info.plist"; sourceTree = "<group>"; };
 		EFDA4AD8186B9AA300E2C7D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFDA4ADA186B9AA300E2C7D6 /* QuotidianTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuotidianTests.m; sourceTree = "<group>"; };
+		EFDA4AE4186BA02B00E2C7D6 /* QuotidianTaskTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotidianTaskTableViewController.h; sourceTree = "<group>"; };
+		EFDA4AE5186BA02B00E2C7D6 /* QuotidianTaskTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotidianTaskTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				EFDA4AC5186B9AA300E2C7D6 /* QuotidianViewController.m */,
 				EFDA4AC7186B9AA300E2C7D6 /* Images.xcassets */,
 				EFDA4AB3186B9AA300E2C7D6 /* Supporting Files */,
+				EFDA4AE4186BA02B00E2C7D6 /* QuotidianTaskTableViewController.h */,
+				EFDA4AE5186BA02B00E2C7D6 /* QuotidianTaskTableViewController.m */,
 			);
 			path = Quotidian;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFDA4AB9186B9AA300E2C7D6 /* main.m in Sources */,
+				EFDA4AE6186BA02B00E2C7D6 /* QuotidianTaskTableViewController.m in Sources */,
 				EFDA4ABD186B9AA300E2C7D6 /* QuotidianAppDelegate.m in Sources */,
 				EFDA4AC6186B9AA300E2C7D6 /* QuotidianViewController.m in Sources */,
 			);
