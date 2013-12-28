@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuotidianViewController : UIViewController
 
+
+@protocol QuotidianViewControllerDelegate <NSObject>
+- (void)didAddNewGoal:(NSString *)goal;
+- (void)didCancel;
+@end
+
+@interface QuotidianViewController : UIViewController
+- (id)delegate;
+- (void)setDelegate:(id)newDelegate;
 @end

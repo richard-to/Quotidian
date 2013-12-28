@@ -6,15 +6,22 @@
 //  Copyright (c) 2013 Richard To. All rights reserved.
 //
 
+#import "QuotidianViewController.h"
 #import "QuotidianTaskTableViewController.h"
 
 @interface QuotidianTaskTableViewController ()
-@property (nonatomic, strong) NSArray *dataSource;
+@property (nonatomic, strong) NSArray *goalList;
 @end
 
 @implementation QuotidianTaskTableViewController
 
-@synthesize dataSource = _dataSource;
+@synthesize goalList = _goalList;
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    //self.goalList = [[NSUserDefaults standardUserDefaults] objectForKey:@"goalsList"];
+    //[self.tableView reloadData];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -25,16 +32,32 @@
     return self;
 }
 
-- (NSArray *)dataSource
+- (void)setGoalList:(NSArray *)goalList
 {
-    if (_dataSource == nil) _dataSource = [NSArray arrayWithObjects:@"Tofu", @"Walrus", @"Cheese", nil];
-    return _dataSource;
+    _goalList = goalList;
+    [self.tableView reloadData];
+}
+
+- (NSArray *)goalList
+{
+    if (_goalList == nil) {
+        _goalList = [[NSUserDefaults standardUserDefaults] objectForKey:@"goalsList"];
+    }
+    return _goalList;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"New Goal"]) {
+        QuotidianViewController *quotidianViewController = [segue destinationViewController];
+        quotidianViewController.delegate = self;
+    }
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -48,6 +71,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)didAddNewGoal:(NSString *)goal
+{
+    if ([goal length] > 0) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSMutableArray *list = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"goalsList"] copyItems:YES];
+        if (!list) {
+            list = [[NSMutableArray alloc] init];
+        }
+        NSMutableDictionary *goalMeta = [[NSMutableDictionary alloc] init];
+        [goalMeta setObject:goal forKey:@"title"];
+        [list addObject: goalMeta];
+        [[NSUserDefaults standardUserDefaults] setObject:[list copy] forKey:@"goalsList"];
+        self.goalList = list;
+        [self.tableView reloadData];
+    }
+    [self dismissViewControllerAnimated:YES completion: nil];
+}
+
+- (void)didCancel
+{
+    [self dismissViewControllerAnimated:YES completion: nil];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -59,16 +105,17 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.dataSource.count;
+    return self.goalList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Task Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    cell.textLabel.text = [self.dataSource objectAtIndex:indexPath.row];
+
+    NSDictionary *goal = [self.goalList objectAtIndex:indexPath.row];
+    // Configure the cell...*/
+    cell.textLabel.text = goal[@"title"];
     return cell;
 }
 
