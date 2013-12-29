@@ -6,22 +6,21 @@
 //  Copyright (c) 2013 Richard To. All rights reserved.
 //
 
+#import "Goal.h"
 #import "QuotidianViewController.h"
 #import "QuotidianTaskTableViewController.h"
+#import <CoreData/CoreData.h>
 
 @interface QuotidianTaskTableViewController ()
 @property (nonatomic, strong) NSArray *goalList;
+@property (nonatomic, strong) UIManagedDocument *document;
 @end
 
 @implementation QuotidianTaskTableViewController
 
 @synthesize goalList = _goalList;
+@synthesize document = _document;
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    //self.goalList = [[NSUserDefaults standardUserDefaults] objectForKey:@"goalsList"];
-    //[self.tableView reloadData];
-}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,7 +40,7 @@
 - (NSArray *)goalList
 {
     if (_goalList == nil) {
-        _goalList = [[NSUserDefaults standardUserDefaults] objectForKey:@"goalsList"];
+        _goalList = [[NSArray alloc] init];
     }
     return _goalList;
 }
@@ -55,14 +54,52 @@
     
 }
 
+-(void)documentIsReady {
+    if (self.document.documentState == UIDocumentStateNormal) {
+        NSManagedObjectContext *context = self.document.managedObjectContext;
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"streak"
+                                                                            ascending:YES];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"active = %i", YES];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Goal"];
+        request.sortDescriptors = @[sortDescriptor];
+        request.predicate = predicate;
+        NSError *error;
+        NSArray *goals = [context executeFetchRequest:request error:&error];
+        [self setGoalList: goals];
+    }
+};
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // Create UIManagedDocument instance
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *documentsDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory
+                                                     inDomains:NSUserDomainMask] firstObject];
+    NSString *documentName = @"MyDocument";
+    NSURL *url = [documentsDirectory URLByAppendingPathComponent:documentName];
+    self.document = [[UIManagedDocument alloc] initWithFileURL:url];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
+        [self.document openWithCompletionHandler:^(BOOL success) {
+            if (success) {
+                [self documentIsReady];
+            } else {
+                NSLog(@"Couldn't open document at %@", url);
+            }
+        }];
+    } else {
+        [self.document saveToURL:url
+           forSaveOperation:UIDocumentSaveForCreating
+          completionHandler:^(BOOL success){
+              if (success) {
+                  [self documentIsReady];
+              } else {
+                  NSLog(@"Couldn't create document at %@", url);
+              }
+          }];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,20 +108,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)didAddNewGoal:(NSString *)goal
+- (void)didAddNewGoal:(NSString *)goalTitle
 {
-    if ([goal length] > 0) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSMutableArray *list = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"goalsList"] copyItems:YES];
-        if (!list) {
-            list = [[NSMutableArray alloc] init];
+    if ([goalTitle length] > 0) {
+        if (self.document.documentState == UIDocumentStateNormal) {
+            NSManagedObjectContext *context = self.document.managedObjectContext;
+            Goal *goal = [NSEntityDescription insertNewObjectForEntityForName:@"Goal"
+                                                       inManagedObjectContext:context];
+            goal.title = goalTitle;
+            goal.streak = [NSNumber numberWithInt: 0];
+            goal.createdAt = [NSDate date];
+            goal.active = [NSNumber numberWithBool:YES];
+            NSMutableArray *mutableGoalList = [NSMutableArray arrayWithArray:self.goalList];
+            [mutableGoalList addObject:goal];
+            self.goalList = [NSArray arrayWithArray: mutableGoalList];
         }
-        NSMutableDictionary *goalMeta = [[NSMutableDictionary alloc] init];
-        [goalMeta setObject:goal forKey:@"title"];
-        [list addObject: goalMeta];
-        [[NSUserDefaults standardUserDefaults] setObject:[list copy] forKey:@"goalsList"];
-        self.goalList = list;
-        [self.tableView reloadData];
     }
     [self dismissViewControllerAnimated:YES completion: nil];
 }
@@ -110,13 +148,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Task Cell";
+    static NSString *CellIdentifier = @"Task Incomplete Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
-    NSDictionary *goal = [self.goalList objectAtIndex:indexPath.row];
+    Goal *goal = [self.goalList objectAtIndex:indexPath.row];
     // Configure the cell...*/
-    cell.textLabel.text = goal[@"title"];
+    cell.textLabel.text = goal.title;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ Days", goal.streak];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%d", indexPath.row);
 }
 
 /*

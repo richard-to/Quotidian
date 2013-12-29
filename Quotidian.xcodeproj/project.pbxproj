@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EFA713DC186FC8B3007E85E8 /* GoalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFA713DA186FC8B3007E85E8 /* GoalModel.xcdatamodeld */; };
+		EFA713EB186FCF2D007E85E8 /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA713EA186FCF2D007E85E8 /* Goal.m */; };
+		EFA713EE186FCF2E007E85E8 /* GoalCompleted.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA713ED186FCF2E007E85E8 /* GoalCompleted.m */; };
 		EFDA4AAD186B9AA300E2C7D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDA4AAC186B9AA300E2C7D6 /* Foundation.framework */; };
 		EFDA4AAF186B9AA300E2C7D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDA4AAE186B9AA300E2C7D6 /* CoreGraphics.framework */; };
 		EFDA4AB1186B9AA300E2C7D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDA4AB0186B9AA300E2C7D6 /* UIKit.framework */; };
@@ -36,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EFA713DB186FC8B3007E85E8 /* GoalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoalModel.xcdatamodel; sourceTree = "<group>"; };
+		EFA713E9186FCF2D007E85E8 /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
+		EFA713EA186FCF2D007E85E8 /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
+		EFA713EC186FCF2E007E85E8 /* GoalCompleted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalCompleted.h; sourceTree = "<group>"; };
+		EFA713ED186FCF2E007E85E8 /* GoalCompleted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalCompleted.m; sourceTree = "<group>"; };
 		EFDA4AA9186B9AA300E2C7D6 /* Quotidian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotidian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDA4AAC186B9AA300E2C7D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EFDA4AAE186B9AA300E2C7D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,6 +135,11 @@
 				EFDA4AB3186B9AA300E2C7D6 /* Supporting Files */,
 				EFDA4AE4186BA02B00E2C7D6 /* QuotidianTaskTableViewController.h */,
 				EFDA4AE5186BA02B00E2C7D6 /* QuotidianTaskTableViewController.m */,
+				EFA713DA186FC8B3007E85E8 /* GoalModel.xcdatamodeld */,
+				EFA713E9186FCF2D007E85E8 /* Goal.h */,
+				EFA713EA186FCF2D007E85E8 /* Goal.m */,
+				EFA713EC186FCF2E007E85E8 /* GoalCompleted.h */,
+				EFA713ED186FCF2E007E85E8 /* GoalCompleted.m */,
 			);
 			path = Quotidian;
 			sourceTree = "<group>";
@@ -259,8 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFA713DC186FC8B3007E85E8 /* GoalModel.xcdatamodeld in Sources */,
+				EFA713EB186FCF2D007E85E8 /* Goal.m in Sources */,
 				EFDA4AB9186B9AA300E2C7D6 /* main.m in Sources */,
 				EFDA4AE6186BA02B00E2C7D6 /* QuotidianTaskTableViewController.m in Sources */,
+				EFA713EE186FCF2E007E85E8 /* GoalCompleted.m in Sources */,
 				EFDA4ABD186B9AA300E2C7D6 /* QuotidianAppDelegate.m in Sources */,
 				EFDA4AC6186B9AA300E2C7D6 /* QuotidianViewController.m in Sources */,
 			);
@@ -481,6 +497,7 @@
 				EFDA4AE0186B9AA300E2C7D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EFDA4AE1186B9AA300E2C7D6 /* Build configuration list for PBXNativeTarget "QuotidianTests" */ = {
 			isa = XCConfigurationList;
@@ -489,8 +506,22 @@
 				EFDA4AE3186B9AA300E2C7D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EFA713DA186FC8B3007E85E8 /* GoalModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFA713DB186FC8B3007E85E8 /* GoalModel.xcdatamodel */,
+			);
+			currentVersion = EFA713DB186FC8B3007E85E8 /* GoalModel.xcdatamodel */;
+			path = GoalModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EFDA4AA1186B9AA300E2C7D6 /* Project object */;
 }

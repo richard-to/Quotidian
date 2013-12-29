@@ -32,6 +32,13 @@
     _delegate = delegate;
 }
 
+- (IBAction)didFinishEnteringGoal: (UITextField *)textField
+{
+    if ([self.delegate respondsToSelector:@selector(didAddNewGoal:)]) {
+        [self.delegate didAddNewGoal: self.goalField.text];
+    }
+}
+
 - (IBAction)pressSave:(UIBarButtonItem *)sender {
     if ([self.delegate respondsToSelector:@selector(didAddNewGoal:)]) {
         [self.delegate didAddNewGoal: self.goalField.text];
