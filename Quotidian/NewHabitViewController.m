@@ -6,17 +6,18 @@
 //  Copyright (c) 2013 Richard To. All rights reserved.
 //
 
-#import "QuotidianViewController.h"
+#import "NewHabitViewController.h"
 
-@interface QuotidianViewController ()
+@interface NewHabitViewController ()
 @property (nonatomic, strong) id delegate;
 @property(nonatomic, retain) IBOutlet UITextField *goalField;
 @end
 
-@implementation QuotidianViewController
+@implementation NewHabitViewController
 
 @synthesize delegate = _delegate;
 @synthesize goalField = _goalField;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,22 +33,16 @@
     _delegate = delegate;
 }
 
-- (IBAction)didFinishEnteringGoal: (UITextField *)textField
-{
-    if ([self.delegate respondsToSelector:@selector(didAddNewGoal:)]) {
-        [self.delegate didAddNewGoal: self.goalField.text];
-    }
-}
 
-- (IBAction)pressSave:(UIBarButtonItem *)sender {
-    if ([self.delegate respondsToSelector:@selector(didAddNewGoal:)]) {
-        [self.delegate didAddNewGoal: self.goalField.text];
+- (IBAction)didFinishEnteringGoal:(UIBarButtonItem *)sender {
+    if ([self.delegate respondsToSelector:@selector(didDismissModal:)]) {
+        [self.delegate didDismissModal: self.goalField.text];
     }
 }
 
 - (IBAction)pressCancel {
-    if ([self.delegate respondsToSelector:@selector(didCancel)]) {
-        [self.delegate didCancel];
+    if ([self.delegate respondsToSelector:@selector(didDismissModal:)]) {
+        [self.delegate didDismissModal: nil];
     }
 }
 

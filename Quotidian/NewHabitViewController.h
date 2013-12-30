@@ -9,13 +9,11 @@
 #import <UIKit/UIKit.h>
 
 
-
-@protocol QuotidianViewControllerDelegate <NSObject>
-- (void)didAddNewGoal:(NSString *)goal;
-- (void)didCancel;
+@protocol NewHabitViewControllerDelegate <NSObject>
+- (void)didDismissModal:(NSString *)goalTitle;
 @end
 
-@interface QuotidianViewController : UIViewController
+@interface NewHabitViewController : UIViewController
 - (id)delegate;
 - (void)setDelegate:(id)newDelegate;
 @end

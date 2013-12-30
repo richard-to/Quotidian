@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuotidianTaskTableViewController : UITableViewController <QuotidianViewControllerDelegate>
+@interface DailyTableViewController : UITableViewController <NewHabitViewControllerDelegate>
 @end

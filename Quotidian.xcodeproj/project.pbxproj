@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EFA713DC186FC8B3007E85E8 /* GoalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFA713DA186FC8B3007E85E8 /* GoalModel.xcdatamodeld */; };
+		EF43DB4A1870DF3700FE9DB5 /* DailyTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43DB491870DF3700FE9DB5 /* DailyTableCell.m */; };
+		EFA713DC186FC8B3007E85E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFA713DA186FC8B3007E85E8 /* Model.xcdatamodeld */; };
 		EFA713EB186FCF2D007E85E8 /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA713EA186FCF2D007E85E8 /* Goal.m */; };
 		EFA713EE186FCF2E007E85E8 /* GoalCompleted.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA713ED186FCF2E007E85E8 /* GoalCompleted.m */; };
 		EFDA4AAD186B9AA300E2C7D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDA4AAC186B9AA300E2C7D6 /* Foundation.framework */; };
@@ -18,14 +19,16 @@
 		EFDA4ABD186B9AA300E2C7D6 /* QuotidianAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA4ABC186B9AA300E2C7D6 /* QuotidianAppDelegate.m */; };
 		EFDA4AC0186B9AA300E2C7D6 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDA4ABE186B9AA300E2C7D6 /* Main_iPhone.storyboard */; };
 		EFDA4AC3186B9AA300E2C7D6 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDA4AC1186B9AA300E2C7D6 /* Main_iPad.storyboard */; };
-		EFDA4AC6186B9AA300E2C7D6 /* QuotidianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA4AC5186B9AA300E2C7D6 /* QuotidianViewController.m */; };
+		EFDA4AC6186B9AA300E2C7D6 /* NewHabitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA4AC5186B9AA300E2C7D6 /* NewHabitViewController.m */; };
 		EFDA4AC8186B9AA300E2C7D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFDA4AC7186B9AA300E2C7D6 /* Images.xcassets */; };
 		EFDA4ACF186B9AA300E2C7D6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDA4ACE186B9AA300E2C7D6 /* XCTest.framework */; };
 		EFDA4AD0186B9AA300E2C7D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDA4AAC186B9AA300E2C7D6 /* Foundation.framework */; };
 		EFDA4AD1186B9AA300E2C7D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDA4AB0186B9AA300E2C7D6 /* UIKit.framework */; };
 		EFDA4AD9186B9AA300E2C7D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFDA4AD7186B9AA300E2C7D6 /* InfoPlist.strings */; };
 		EFDA4ADB186B9AA300E2C7D6 /* QuotidianTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA4ADA186B9AA300E2C7D6 /* QuotidianTests.m */; };
-		EFDA4AE6186BA02B00E2C7D6 /* QuotidianTaskTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA4AE5186BA02B00E2C7D6 /* QuotidianTaskTableViewController.m */; };
+		EFDA4AE6186BA02B00E2C7D6 /* DailyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA4AE5186BA02B00E2C7D6 /* DailyTableViewController.m */; };
+		EFEE774818716B9A00D2F922 /* Goal+Addon.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE774718716B9A00D2F922 /* Goal+Addon.m */; };
+		EFEE774B18719AA900D2F922 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE774A18719AA900D2F922 /* Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EFA713DB186FC8B3007E85E8 /* GoalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoalModel.xcdatamodel; sourceTree = "<group>"; };
+		EF43DB481870DF3700FE9DB5 /* DailyTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyTableCell.h; sourceTree = "<group>"; };
+		EF43DB491870DF3700FE9DB5 /* DailyTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyTableCell.m; sourceTree = "<group>"; };
+		EFA713DB186FC8B3007E85E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		EFA713E9186FCF2D007E85E8 /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
 		EFA713EA186FCF2D007E85E8 /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
 		EFA713EC186FCF2E007E85E8 /* GoalCompleted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalCompleted.h; sourceTree = "<group>"; };
@@ -56,16 +61,20 @@
 		EFDA4ABC186B9AA300E2C7D6 /* QuotidianAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuotidianAppDelegate.m; sourceTree = "<group>"; };
 		EFDA4ABF186B9AA300E2C7D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		EFDA4AC2186B9AA300E2C7D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		EFDA4AC4186B9AA300E2C7D6 /* QuotidianViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuotidianViewController.h; sourceTree = "<group>"; };
-		EFDA4AC5186B9AA300E2C7D6 /* QuotidianViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuotidianViewController.m; sourceTree = "<group>"; };
+		EFDA4AC4186B9AA300E2C7D6 /* NewHabitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHabitViewController.h; sourceTree = "<group>"; };
+		EFDA4AC5186B9AA300E2C7D6 /* NewHabitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHabitViewController.m; sourceTree = "<group>"; };
 		EFDA4AC7186B9AA300E2C7D6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EFDA4ACD186B9AA300E2C7D6 /* QuotidianTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuotidianTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDA4ACE186B9AA300E2C7D6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EFDA4AD6186B9AA300E2C7D6 /* QuotidianTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuotidianTests-Info.plist"; sourceTree = "<group>"; };
 		EFDA4AD8186B9AA300E2C7D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFDA4ADA186B9AA300E2C7D6 /* QuotidianTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuotidianTests.m; sourceTree = "<group>"; };
-		EFDA4AE4186BA02B00E2C7D6 /* QuotidianTaskTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotidianTaskTableViewController.h; sourceTree = "<group>"; };
-		EFDA4AE5186BA02B00E2C7D6 /* QuotidianTaskTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotidianTaskTableViewController.m; sourceTree = "<group>"; };
+		EFDA4AE4186BA02B00E2C7D6 /* DailyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyTableViewController.h; sourceTree = "<group>"; };
+		EFDA4AE5186BA02B00E2C7D6 /* DailyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyTableViewController.m; sourceTree = "<group>"; };
+		EFEE774618716B9A00D2F922 /* Goal+Addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Goal+Addon.h"; sourceTree = "<group>"; };
+		EFEE774718716B9A00D2F922 /* Goal+Addon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Goal+Addon.m"; sourceTree = "<group>"; };
+		EFEE774918719AA900D2F922 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		EFEE774A18719AA900D2F922 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,17 +138,23 @@
 				EFDA4ABC186B9AA300E2C7D6 /* QuotidianAppDelegate.m */,
 				EFDA4ABE186B9AA300E2C7D6 /* Main_iPhone.storyboard */,
 				EFDA4AC1186B9AA300E2C7D6 /* Main_iPad.storyboard */,
-				EFDA4AC4186B9AA300E2C7D6 /* QuotidianViewController.h */,
-				EFDA4AC5186B9AA300E2C7D6 /* QuotidianViewController.m */,
+				EFDA4AC4186B9AA300E2C7D6 /* NewHabitViewController.h */,
+				EFDA4AC5186B9AA300E2C7D6 /* NewHabitViewController.m */,
 				EFDA4AC7186B9AA300E2C7D6 /* Images.xcassets */,
 				EFDA4AB3186B9AA300E2C7D6 /* Supporting Files */,
-				EFDA4AE4186BA02B00E2C7D6 /* QuotidianTaskTableViewController.h */,
-				EFDA4AE5186BA02B00E2C7D6 /* QuotidianTaskTableViewController.m */,
-				EFA713DA186FC8B3007E85E8 /* GoalModel.xcdatamodeld */,
+				EFDA4AE4186BA02B00E2C7D6 /* DailyTableViewController.h */,
+				EFDA4AE5186BA02B00E2C7D6 /* DailyTableViewController.m */,
+				EFEE774618716B9A00D2F922 /* Goal+Addon.h */,
+				EFEE774718716B9A00D2F922 /* Goal+Addon.m */,
+				EFA713DA186FC8B3007E85E8 /* Model.xcdatamodeld */,
 				EFA713E9186FCF2D007E85E8 /* Goal.h */,
 				EFA713EA186FCF2D007E85E8 /* Goal.m */,
 				EFA713EC186FCF2E007E85E8 /* GoalCompleted.h */,
 				EFA713ED186FCF2E007E85E8 /* GoalCompleted.m */,
+				EF43DB481870DF3700FE9DB5 /* DailyTableCell.h */,
+				EF43DB491870DF3700FE9DB5 /* DailyTableCell.m */,
+				EFEE774918719AA900D2F922 /* Util.h */,
+				EFEE774A18719AA900D2F922 /* Util.m */,
 			);
 			path = Quotidian;
 			sourceTree = "<group>";
@@ -272,13 +287,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFA713DC186FC8B3007E85E8 /* GoalModel.xcdatamodeld in Sources */,
+				EFA713DC186FC8B3007E85E8 /* Model.xcdatamodeld in Sources */,
 				EFA713EB186FCF2D007E85E8 /* Goal.m in Sources */,
 				EFDA4AB9186B9AA300E2C7D6 /* main.m in Sources */,
-				EFDA4AE6186BA02B00E2C7D6 /* QuotidianTaskTableViewController.m in Sources */,
+				EFEE774818716B9A00D2F922 /* Goal+Addon.m in Sources */,
+				EFDA4AE6186BA02B00E2C7D6 /* DailyTableViewController.m in Sources */,
+				EFEE774B18719AA900D2F922 /* Util.m in Sources */,
 				EFA713EE186FCF2E007E85E8 /* GoalCompleted.m in Sources */,
+				EF43DB4A1870DF3700FE9DB5 /* DailyTableCell.m in Sources */,
 				EFDA4ABD186B9AA300E2C7D6 /* QuotidianAppDelegate.m in Sources */,
-				EFDA4AC6186B9AA300E2C7D6 /* QuotidianViewController.m in Sources */,
+				EFDA4AC6186B9AA300E2C7D6 /* NewHabitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,13 +529,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		EFA713DA186FC8B3007E85E8 /* GoalModel.xcdatamodeld */ = {
+		EFA713DA186FC8B3007E85E8 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				EFA713DB186FC8B3007E85E8 /* GoalModel.xcdatamodel */,
+				EFA713DB186FC8B3007E85E8 /* Model.xcdatamodel */,
 			);
-			currentVersion = EFA713DB186FC8B3007E85E8 /* GoalModel.xcdatamodel */;
-			path = GoalModel.xcdatamodeld;
+			currentVersion = EFA713DB186FC8B3007E85E8 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
