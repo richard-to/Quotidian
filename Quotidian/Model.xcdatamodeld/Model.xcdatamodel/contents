@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CompletedGoal" representedClassName="CompletedGoal" syncable="YES">
+        <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="forDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Goal" representedClassName="Goal" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="streak" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="goalsCompleted" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="GoalCompleted" syncable="YES"/>
-    </entity>
-    <entity name="GoalCompleted" representedClassName="GoalCompleted" syncable="YES">
-        <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="forDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="completed" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="CompletedGoal" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Goal" positionX="160" positionY="192" width="128" height="103"/>
-        <element name="GoalCompleted" positionX="162" positionY="-9" width="128" height="58"/>
+        <element name="Goal" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CompletedGoal" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

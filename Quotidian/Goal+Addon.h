@@ -8,7 +8,7 @@
 
 #import "Util.h"
 #import "Goal.h"
-#import "GoalCompleted.h"
+#import "CompletedGoal.h"
 
 @interface Goal (Addon)
 + (NSString *)entityName;
@@ -17,4 +17,5 @@
 + (NSArray *)fetchDailyTodoInManagedObjectContext:(NSManagedObjectContext *)context;
 + (NSArray *)fetchDailyCompletedInManagedObjectContext:(NSManagedObjectContext *)context;
 + (void)completedGoal:(Goal *)goal inManagedObjectContext:(NSManagedObjectContext *)context;
++ (void)undoCompletedGoal:(Goal *)goal inManagedObjectContext:(NSManagedObjectContext *)context;
 @end

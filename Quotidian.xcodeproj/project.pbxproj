@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		EF43DB4A1870DF3700FE9DB5 /* DailyTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43DB491870DF3700FE9DB5 /* DailyTableCell.m */; };
 		EFA713DC186FC8B3007E85E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFA713DA186FC8B3007E85E8 /* Model.xcdatamodeld */; };
-		EFA713EB186FCF2D007E85E8 /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA713EA186FCF2D007E85E8 /* Goal.m */; };
-		EFA713EE186FCF2E007E85E8 /* GoalCompleted.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA713ED186FCF2E007E85E8 /* GoalCompleted.m */; };
 		EFDA4AAD186B9AA300E2C7D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDA4AAC186B9AA300E2C7D6 /* Foundation.framework */; };
 		EFDA4AAF186B9AA300E2C7D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDA4AAE186B9AA300E2C7D6 /* CoreGraphics.framework */; };
 		EFDA4AB1186B9AA300E2C7D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDA4AB0186B9AA300E2C7D6 /* UIKit.framework */; };
@@ -29,6 +27,8 @@
 		EFDA4AE6186BA02B00E2C7D6 /* DailyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA4AE5186BA02B00E2C7D6 /* DailyTableViewController.m */; };
 		EFEE774818716B9A00D2F922 /* Goal+Addon.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE774718716B9A00D2F922 /* Goal+Addon.m */; };
 		EFEE774B18719AA900D2F922 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE774A18719AA900D2F922 /* Util.m */; };
+		EFEE774E1872454400D2F922 /* CompletedGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE774D1872454400D2F922 /* CompletedGoal.m */; };
+		EFEE77511872454400D2F922 /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE77501872454400D2F922 /* Goal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +45,6 @@
 		EF43DB481870DF3700FE9DB5 /* DailyTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyTableCell.h; sourceTree = "<group>"; };
 		EF43DB491870DF3700FE9DB5 /* DailyTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyTableCell.m; sourceTree = "<group>"; };
 		EFA713DB186FC8B3007E85E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		EFA713E9186FCF2D007E85E8 /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
-		EFA713EA186FCF2D007E85E8 /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
-		EFA713EC186FCF2E007E85E8 /* GoalCompleted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalCompleted.h; sourceTree = "<group>"; };
-		EFA713ED186FCF2E007E85E8 /* GoalCompleted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalCompleted.m; sourceTree = "<group>"; };
 		EFDA4AA9186B9AA300E2C7D6 /* Quotidian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotidian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDA4AAC186B9AA300E2C7D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EFDA4AAE186B9AA300E2C7D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -75,6 +71,10 @@
 		EFEE774718716B9A00D2F922 /* Goal+Addon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Goal+Addon.m"; sourceTree = "<group>"; };
 		EFEE774918719AA900D2F922 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		EFEE774A18719AA900D2F922 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		EFEE774C1872454400D2F922 /* CompletedGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletedGoal.h; sourceTree = "<group>"; };
+		EFEE774D1872454400D2F922 /* CompletedGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletedGoal.m; sourceTree = "<group>"; };
+		EFEE774F1872454400D2F922 /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
+		EFEE77501872454400D2F922 /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,10 +147,10 @@
 				EFEE774618716B9A00D2F922 /* Goal+Addon.h */,
 				EFEE774718716B9A00D2F922 /* Goal+Addon.m */,
 				EFA713DA186FC8B3007E85E8 /* Model.xcdatamodeld */,
-				EFA713E9186FCF2D007E85E8 /* Goal.h */,
-				EFA713EA186FCF2D007E85E8 /* Goal.m */,
-				EFA713EC186FCF2E007E85E8 /* GoalCompleted.h */,
-				EFA713ED186FCF2E007E85E8 /* GoalCompleted.m */,
+				EFEE774F1872454400D2F922 /* Goal.h */,
+				EFEE77501872454400D2F922 /* Goal.m */,
+				EFEE774C1872454400D2F922 /* CompletedGoal.h */,
+				EFEE774D1872454400D2F922 /* CompletedGoal.m */,
 				EF43DB481870DF3700FE9DB5 /* DailyTableCell.h */,
 				EF43DB491870DF3700FE9DB5 /* DailyTableCell.m */,
 				EFEE774918719AA900D2F922 /* Util.h */,
@@ -287,13 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFEE77511872454400D2F922 /* Goal.m in Sources */,
+				EFEE774E1872454400D2F922 /* CompletedGoal.m in Sources */,
 				EFA713DC186FC8B3007E85E8 /* Model.xcdatamodeld in Sources */,
-				EFA713EB186FCF2D007E85E8 /* Goal.m in Sources */,
 				EFDA4AB9186B9AA300E2C7D6 /* main.m in Sources */,
 				EFEE774818716B9A00D2F922 /* Goal+Addon.m in Sources */,
 				EFDA4AE6186BA02B00E2C7D6 /* DailyTableViewController.m in Sources */,
 				EFEE774B18719AA900D2F922 /* Util.m in Sources */,
-				EFA713EE186FCF2E007E85E8 /* GoalCompleted.m in Sources */,
 				EF43DB4A1870DF3700FE9DB5 /* DailyTableCell.m in Sources */,
 				EFDA4ABD186B9AA300E2C7D6 /* QuotidianAppDelegate.m in Sources */,
 				EFDA4AC6186B9AA300E2C7D6 /* NewHabitViewController.m in Sources */,

@@ -2,34 +2,34 @@
 //  Goal.h
 //  Quotidian
 //
-//  Created by Richard To on 12/28/13.
+//  Created by Richard To on 12/30/13.
 //  Copyright (c) 2013 Richard To. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class GoalCompleted;
+@class CompletedGoal;
 
 @interface Goal : NSManagedObject
 
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSNumber * streak;
-@property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSNumber * active;
-@property (nonatomic, retain) NSOrderedSet *goalsCompleted;
+@property (nonatomic, retain) NSDate * createdAt;
+@property (nonatomic, retain) NSNumber * streak;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSOrderedSet *completed;
 @end
 
 @interface Goal (CoreDataGeneratedAccessors)
 
-- (void)insertObject:(GoalCompleted *)value inGoalsCompletedAtIndex:(NSUInteger)idx;
-- (void)removeObjectFromGoalsCompletedAtIndex:(NSUInteger)idx;
-- (void)insertGoalsCompleted:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
-- (void)removeGoalsCompletedAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInGoalsCompletedAtIndex:(NSUInteger)idx withObject:(GoalCompleted *)value;
-- (void)replaceGoalsCompletedAtIndexes:(NSIndexSet *)indexes withGoalsCompleted:(NSArray *)values;
-- (void)addGoalsCompletedObject:(GoalCompleted *)value;
-- (void)removeGoalsCompletedObject:(GoalCompleted *)value;
-- (void)addGoalsCompleted:(NSOrderedSet *)values;
-- (void)removeGoalsCompleted:(NSOrderedSet *)values;
+- (void)insertObject:(CompletedGoal *)value inCompletedAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromCompletedAtIndex:(NSUInteger)idx;
+- (void)insertCompleted:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removeCompletedAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInCompletedAtIndex:(NSUInteger)idx withObject:(CompletedGoal *)value;
+- (void)replaceCompletedAtIndexes:(NSIndexSet *)indexes withCompleted:(NSArray *)values;
+- (void)addCompletedObject:(CompletedGoal *)value;
+- (void)removeCompletedObject:(CompletedGoal *)value;
+- (void)addCompleted:(NSOrderedSet *)values;
+- (void)removeCompleted:(NSOrderedSet *)values;
 @end

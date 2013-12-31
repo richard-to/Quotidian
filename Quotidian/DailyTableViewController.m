@@ -8,7 +8,7 @@
 
 #import "Goal.h"
 #import "Goal+Addon.h"
-#import "GoalCompleted.h"
+#import "CompletedGoal.h"
 #import "DailyTableCell.h"
 #import "NewHabitViewController.h"
 #import "DailyTableViewController.h"
@@ -18,13 +18,14 @@ int const NUM_SECTIONS = 2;
 int const SECTION_TODO = 0;
 int const SECTION_COMPLETED = 1;
 int const CELL_HEIGHT = 60;
+int const HEADER_HEIGHT = 40;
 
 NSString *const DOCUMENT_NAME = @"QuotidianDocument";
 NSString *const SHORT_DATE_FORMAT = @"MMM d";
 NSString *const TODO_HEADER = @"To Do";
 NSString *const COMPLETED_HEADER = @"Completed";
-NSString *const TODO_CELL_ID = @"Task Test Cell";
-NSString *const COMPLETED_CELL_ID = @"Task Test Cell";
+NSString *const TODO_CELL_ID = @"Todo Cell";
+NSString *const COMPLETED_CELL_ID = @"Completed Cell";
 
 @interface DailyTableViewController ()
 @property (nonatomic, strong) NSArray *todoList;
@@ -125,6 +126,17 @@ NSString *const COMPLETED_CELL_ID = @"Task Test Cell";
     self.completedList = [NSArray arrayWithArray: mutableCompletedList];
 }
 
+-(void)moveGoalToToDo:(Goal *)goal
+{
+    NSMutableArray *mutableTodoList = [NSMutableArray arrayWithArray:self.completedList];
+    [mutableTodoList removeObject:goal];
+    self.completedList = [NSArray arrayWithArray: mutableTodoList];
+    
+    NSMutableArray *mutableCompletedList = [NSMutableArray arrayWithArray:self.todoList];
+    [mutableCompletedList addObject:goal];
+    self.todoList = [NSArray arrayWithArray: mutableCompletedList];
+}
+
 #pragma mark - New Habit View Controller Delegate
 
 - (void)didDismissModal:(NSString *)goalTitle
@@ -171,12 +183,11 @@ NSString *const COMPLETED_CELL_ID = @"Task Test Cell";
 
 #pragma mark - Table view data source
 
-/*
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 50;
+    return HEADER_HEIGHT;
 }
-*/
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -212,13 +223,13 @@ NSString *const COMPLETED_CELL_ID = @"Task Test Cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DailyTableCell *cell = [tableView dequeueReusableCellWithIdentifier:TODO_CELL_ID
-                                                           forIndexPath:indexPath];
-    
     Goal *goal = nil;
+    DailyTableCell *cell = nil;
     if (indexPath.section == SECTION_TODO) {
+        cell = [tableView dequeueReusableCellWithIdentifier:TODO_CELL_ID forIndexPath:indexPath];
         goal = [self.todoList objectAtIndex:indexPath.row];
     } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:COMPLETED_CELL_ID forIndexPath:indexPath];
         goal = [self.completedList objectAtIndex:indexPath.row];
     }
 
@@ -237,7 +248,9 @@ NSString *const COMPLETED_CELL_ID = @"Task Test Cell";
         [Goal completedGoal:goal inManagedObjectContext:self.context];
         [self moveGoalToCompleted:goal];
     } else if (indexPath.section == SECTION_COMPLETED) {
-        
+        Goal *goal = [self.completedList objectAtIndex:indexPath.row];
+        [Goal undoCompletedGoal:goal inManagedObjectContext:self.context];
+        [self moveGoalToToDo:goal];
     }
 }
 
