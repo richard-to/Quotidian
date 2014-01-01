@@ -12,8 +12,7 @@ NSString *const CLASS_NAME = @"Goal";
 NSString *const CLASS_COMPLETED_NAME = @"CompletedGoal";
 
 NSString *const FETCH_DAILY_TODO_PRED =
-    @"((ANY completed = nil) OR (ANY completed.forDate < %@ OR ANY completed.forDate > %@)) AND (active = %i)";
-
+    @"(SUBQUERY(completed, $a, $a.forDate > %@).@count == 0 OR ANY completed == nil) AND (active = %i)";
 NSString *const FETCH_DAILY_COMPLETED_PRED =
     @"(ANY completed.forDate >= %@ AND ANY completed.forDate <= %@) AND (active = %i)";
 
@@ -45,7 +44,7 @@ NSString *const FETCH_DAILY_COMPLETED_PRED =
         [NSSortDescriptor sortDescriptorWithKey:@"streak" ascending:YES];
     
     NSPredicate *predicate =
-        [NSPredicate predicateWithFormat:FETCH_DAILY_TODO_PRED, dayRange[0], dayRange[1], YES];
+        [NSPredicate predicateWithFormat:FETCH_DAILY_TODO_PRED, dayRange[0], YES];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:CLASS_NAME];
     request.sortDescriptors = @[sortDescriptor];
     request.predicate = predicate;
@@ -68,14 +67,13 @@ NSString *const FETCH_DAILY_COMPLETED_PRED =
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:CLASS_NAME];
     request.sortDescriptors = @[sortDescriptor];
     request.predicate = predicate;
-    
+
     NSError *error;
     NSArray *goals = [context executeFetchRequest:request error:&error];
     
     return goals;
 }
 
-// TODO(richard-to): Check to see if completed entity exists to avoid duplicates
 + (void)completedGoal:(Goal *)goal inManagedObjectContext:(NSManagedObjectContext *)context
 {
     CompletedGoal *completed = [NSEntityDescription
@@ -83,24 +81,63 @@ NSString *const FETCH_DAILY_COMPLETED_PRED =
                              inManagedObjectContext:context];
     completed.forDate = [NSDate date];
     completed.completed = [NSNumber numberWithBool:YES];
-    goal.streak = [NSNumber numberWithInt: [goal.streak intValue] + 1];
+    if ([goal.streak intValue] < 0) {
+        goal.streak = [NSNumber numberWithInt: 1];
+    } else {
+        goal.streak = [NSNumber numberWithInt: [goal.streak intValue] + 1];
+    }
     [goal addCompletedObject:completed];
 }
 
 + (void)undoCompletedGoal:(Goal *)goal inManagedObjectContext:(NSManagedObjectContext *)context
 {
-    if (goal.streak > 0) {
-        goal.streak = [NSNumber numberWithInt: [goal.streak intValue] - 1];
-    } else {
-        goal.streak = 0;
-    }
-    
     NSArray *dayRange = [Util dayRange];
     for (CompletedGoal *completed in goal.completed) {
         if ([completed.forDate compare:dayRange[0]] == NSOrderedDescending
             && [completed.forDate compare:dayRange[1]] == NSOrderedAscending) {
             [goal removeCompletedObject:completed];
         }
+    }
+    
+    if ([goal.streak intValue] > 1) {
+        goal.streak = [NSNumber numberWithInt: [goal.streak intValue] - 1];
+    } else {
+        [self calcStreak:goal comprehensively:NO];
+    }
+}
+
+// TODO(richard-to): Maybe move to util?
++ (void)calcStreak:(Goal *)goal comprehensively:(BOOL)comphrensive;
+{
+    BOOL hasHistory = NO;
+    NSDate *lastCompletedDate = goal.createdAt;
+    CompletedGoal *lastCompleted = [goal.completed lastObject];
+    if (lastCompleted != nil) {
+        lastCompletedDate = lastCompleted.forDate;
+        hasHistory = YES;
+    }
+    int days = [Util dayDiffFromDate:lastCompletedDate to:[NSDate date]];
+    
+    if (hasHistory) {
+        if (days == -1 && comphrensive) {
+            int streak = 0;
+            NSDate *endDate = [NSDate date];
+            NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@"forDate" ascending:NO];
+            for (CompletedGoal *completed in [goal.completed sortedArrayUsingDescriptors: [NSArray arrayWithObject:dateSort]]) {
+                int dayDiff = [Util dayDiffFromDate:completed.forDate to:endDate];
+                if (dayDiff == -1) {
+                    streak += 1;
+                    endDate = completed.forDate;
+                } else {
+                    break;
+                }
+            }
+            goal.streak = [NSNumber numberWithInt: streak];
+        } else if (days < -1) {
+            goal.streak = [NSNumber numberWithInt: days + 1];
+        }
+    } else {
+        goal.streak = [NSNumber numberWithInt:days];
     }
 }
 @end

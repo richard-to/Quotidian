@@ -17,15 +17,15 @@
 int const NUM_SECTIONS = 2;
 int const SECTION_TODO = 0;
 int const SECTION_COMPLETED = 1;
-int const CELL_HEIGHT = 60;
-int const HEADER_HEIGHT = 40;
+int const CELL_HEIGHT = 46;
+int const HEADER_HEIGHT = 24;
 
 NSString *const DOCUMENT_NAME = @"QuotidianDocument";
 NSString *const SHORT_DATE_FORMAT = @"MMM d";
 NSString *const TODO_HEADER = @"To Do";
 NSString *const COMPLETED_HEADER = @"Completed";
 NSString *const TODO_CELL_ID = @"Todo Cell";
-NSString *const COMPLETED_CELL_ID = @"Completed Cell";
+NSString *const COMPLETED_CELL_ID = @"Todo Cell";
 
 @interface DailyTableViewController ()
 @property (nonatomic, strong) NSArray *todoList;
@@ -56,7 +56,7 @@ NSString *const COMPLETED_CELL_ID = @"Completed Cell";
     
     [self setNavigationTitleToTodaysDate];
     [self initDocument];
-    //[[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setTextColor:[UIColor whiteColor]];
+    [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setFont:[UIFont systemFontOfSize:13]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,6 +152,7 @@ NSString *const COMPLETED_CELL_ID = @"Completed Cell";
 
 
 #pragma mark - Mutators/Accessors
+
 - (void)setTodoList:(NSArray *)todoList
 {
     _todoList = todoList;
@@ -182,7 +183,6 @@ NSString *const COMPLETED_CELL_ID = @"Completed Cell";
 
 
 #pragma mark - Table view data source
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -228,17 +228,18 @@ NSString *const COMPLETED_CELL_ID = @"Completed Cell";
     if (indexPath.section == SECTION_TODO) {
         cell = [tableView dequeueReusableCellWithIdentifier:TODO_CELL_ID forIndexPath:indexPath];
         goal = [self.todoList objectAtIndex:indexPath.row];
+        [Goal calcStreak:goal comprehensively:NO];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:COMPLETED_CELL_ID forIndexPath:indexPath];
         goal = [self.completedList objectAtIndex:indexPath.row];
     }
-
     cell.titleLabel.text = goal.title;
     if ([goal.streak intValue] == 1) {
-        cell.detailLabel.text = [NSString stringWithFormat:@"%@ day in a row", goal.streak];
+        cell.detailLabel.text = [NSString stringWithFormat:@"%@ day", goal.streak];
     } else {
-        cell.detailLabel.text = [NSString stringWithFormat:@"%@ days in a row", goal.streak];
+        cell.detailLabel.text = [NSString stringWithFormat:@"%@ days", goal.streak];
     }
+    [cell colorFromStreak: goal.streak];
     return cell;
 }
 

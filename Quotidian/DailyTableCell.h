@@ -11,4 +11,5 @@
 @interface DailyTableCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *detailLabel;
+- (void)colorFromStreak:(NSNumber *)streak;
 @end

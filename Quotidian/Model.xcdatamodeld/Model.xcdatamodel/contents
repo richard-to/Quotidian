@@ -13,7 +13,7 @@
         <relationship name="completed" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="CompletedGoal" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Goal" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="CompletedGoal" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CompletedGoal" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Goal" positionX="0" positionY="0" width="128" height="118"/>
     </elements>
 </model>

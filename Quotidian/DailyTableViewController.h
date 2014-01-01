@@ -9,4 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface DailyTableViewController : UITableViewController <NewHabitViewControllerDelegate>
-@end
+@end	

@@ -18,4 +18,5 @@
 + (NSArray *)fetchDailyCompletedInManagedObjectContext:(NSManagedObjectContext *)context;
 + (void)completedGoal:(Goal *)goal inManagedObjectContext:(NSManagedObjectContext *)context;
 + (void)undoCompletedGoal:(Goal *)goal inManagedObjectContext:(NSManagedObjectContext *)context;
++ (void)calcStreak:(Goal *)goal comprehensively: (BOOL)comphrensive;
 @end

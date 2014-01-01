@@ -10,4 +10,5 @@
 
 @interface Util : NSObject
 +(NSArray *)dayRange;
++(int)dayDiffFromDate:(NSDate *)fromDate to:(NSDate *)toDate;
 @end
