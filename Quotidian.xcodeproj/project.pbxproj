@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF2E20F8187A706F00C70311 /* HabitDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2E20F7187A706F00C70311 /* HabitDetailViewController.m */; };
+		EF2E20FB187A883400C70311 /* DayCheckView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2E20FA187A883400C70311 /* DayCheckView.m */; };
 		EF43DB4A1870DF3700FE9DB5 /* DailyTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43DB491870DF3700FE9DB5 /* DailyTableCell.m */; };
 		EFA713DC186FC8B3007E85E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFA713DA186FC8B3007E85E8 /* Model.xcdatamodeld */; };
 		EFDA4AAD186B9AA300E2C7D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDA4AAC186B9AA300E2C7D6 /* Foundation.framework */; };
@@ -42,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF2E20F6187A706F00C70311 /* HabitDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitDetailViewController.h; sourceTree = "<group>"; };
+		EF2E20F7187A706F00C70311 /* HabitDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitDetailViewController.m; sourceTree = "<group>"; };
+		EF2E20F9187A883400C70311 /* DayCheckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayCheckView.h; sourceTree = "<group>"; };
+		EF2E20FA187A883400C70311 /* DayCheckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayCheckView.m; sourceTree = "<group>"; };
 		EF43DB481870DF3700FE9DB5 /* DailyTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyTableCell.h; sourceTree = "<group>"; };
 		EF43DB491870DF3700FE9DB5 /* DailyTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyTableCell.m; sourceTree = "<group>"; };
 		EFA713DB186FC8B3007E85E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -155,6 +161,10 @@
 				EF43DB491870DF3700FE9DB5 /* DailyTableCell.m */,
 				EFEE774918719AA900D2F922 /* Util.h */,
 				EFEE774A18719AA900D2F922 /* Util.m */,
+				EF2E20F6187A706F00C70311 /* HabitDetailViewController.h */,
+				EF2E20F7187A706F00C70311 /* HabitDetailViewController.m */,
+				EF2E20F9187A883400C70311 /* DayCheckView.h */,
+				EF2E20FA187A883400C70311 /* DayCheckView.m */,
 			);
 			path = Quotidian;
 			sourceTree = "<group>";
@@ -289,7 +299,9 @@
 			files = (
 				EFEE77511872454400D2F922 /* Goal.m in Sources */,
 				EFEE774E1872454400D2F922 /* CompletedGoal.m in Sources */,
+				EF2E20F8187A706F00C70311 /* HabitDetailViewController.m in Sources */,
 				EFA713DC186FC8B3007E85E8 /* Model.xcdatamodeld in Sources */,
+				EF2E20FB187A883400C70311 /* DayCheckView.m in Sources */,
 				EFDA4AB9186B9AA300E2C7D6 /* main.m in Sources */,
 				EFEE774818716B9A00D2F922 /* Goal+Addon.m in Sources */,
 				EFDA4AE6186BA02B00E2C7D6 /* DailyTableViewController.m in Sources */,

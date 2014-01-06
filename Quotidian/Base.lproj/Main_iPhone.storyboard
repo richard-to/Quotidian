@@ -16,7 +16,7 @@
                         <inset key="separatorInset" minX="13" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <color key="sectionIndexColor" red="0.59607845544815063" green="0.59607845544815063" blue="0.59607845544815063" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
-                            <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Todo Cell" editingAccessoryType="disclosureIndicator" rowHeight="46" id="j8t-sR-yeZ" customClass="DailyTableCell">
+                            <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Todo Cell" rowHeight="46" id="j8t-sR-yeZ" customClass="DailyTableCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j8t-sR-yeZ" id="lro-en-GHk">
@@ -44,6 +44,7 @@
                                 <connections>
                                     <outlet property="detailLabel" destination="IZs-xg-q40" id="KBV-rF-aoJ"/>
                                     <outlet property="titleLabel" destination="jSG-fx-AJv" id="1yS-yD-ZcQ"/>
+                                    <segue destination="NA0-m2-saM" kind="modal" id="drK-CI-Duo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -62,7 +63,66 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umU-Lo-PCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="513" y="-111"/>
+            <point key="canvasLocation" x="440" y="254"/>
+        </scene>
+        <!--Habit Detail View Controller - Edit Habit-->
+        <scene sceneID="Jh4-ck-hPa">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LP7-FU-fX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="Edit Habit" id="NA0-m2-saM" customClass="HabitDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Foy-LL-OWh"/>
+                        <viewControllerLayoutGuide type="bottom" id="HUv-EP-XAk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JgK-U5-mqI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UP3-J0-68b">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="Jbq-RH-w5y">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="i7U-mt-KjI"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Completed" id="gQU-PK-u5E"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="90q-29-oxR" customClass="DayCheckView">
+                                <rect key="frame" x="20" y="345" width="280" height="203"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="31" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqM-N9-6Zk">
+                                        <rect key="frame" x="1" y="6" width="35" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Learning machine learning for one hour" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="223" translatesAutoresizingMaskIntoConstraints="NO" id="4eh-Rf-N8F">
+                                        <rect key="frame" x="43" y="7" width="223" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.59607845540000004" green="0.59607845540000004" blue="0.59607845540000004" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97331917285919189" green="0.97325319051742554" blue="0.97327703237533569" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="January" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVP-CH-nFO">
+                                <rect key="frame" x="20" y="311" width="280" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.26274511218070984" green="0.54509806632995605" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="996" y="468"/>
         </scene>
         <!--New Habit View Controller - Add New Goal-->
         <scene sceneID="f5C-eu-PBu">
@@ -115,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vg3-5V-ErE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="-101"/>
+            <point key="canvasLocation" x="996" y="-193"/>
         </scene>
         <!--Navigation Controller - Home-->
         <scene sceneID="vis-1z-EJa">
@@ -131,7 +191,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBH-gE-rzF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56" y="-111"/>
+            <point key="canvasLocation" x="-10" y="254"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7xc-bo-9I8">
@@ -149,7 +209,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffN-ez-mel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-470" y="-111"/>
+            <point key="canvasLocation" x="-462" y="241"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
