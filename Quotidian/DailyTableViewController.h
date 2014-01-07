@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DailyTableViewController : UITableViewController <NewHabitViewControllerDelegate>
+@interface DailyTableViewController : UITableViewController <NewHabitViewControllerDelegate, NewHabitViewControllerDelegate>
 @end	

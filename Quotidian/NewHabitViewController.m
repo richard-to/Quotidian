@@ -9,7 +9,7 @@
 #import "NewHabitViewController.h"
 
 @interface NewHabitViewController ()
-@property (nonatomic, strong) id delegate;
+@property (nonatomic, weak) id delegate;
 @property(nonatomic, retain) IBOutlet UITextField *goalField;
 @end
 
@@ -35,14 +35,14 @@
 
 
 - (IBAction)didFinishEnteringGoal:(UIBarButtonItem *)sender {
-    if ([self.delegate respondsToSelector:@selector(didDismissModal:)]) {
-        [self.delegate didDismissModal: self.goalField.text];
+    if ([self.delegate respondsToSelector:@selector(didDismissNewHabitModal:)]) {
+        [self.delegate didDismissNewHabitModal: self.goalField.text];
     }
 }
 
 - (IBAction)pressCancel {
-    if ([self.delegate respondsToSelector:@selector(didDismissModal:)]) {
-        [self.delegate didDismissModal: nil];
+    if ([self.delegate respondsToSelector:@selector(didDismissNewHabitModal:)]) {
+        [self.delegate didDismissNewHabitModal: nil];
     }
 }
 

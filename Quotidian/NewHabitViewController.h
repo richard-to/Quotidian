@@ -10,7 +10,7 @@
 
 
 @protocol NewHabitViewControllerDelegate <NSObject>
-- (void)didDismissModal:(NSString *)goalTitle;
+- (void)didDismissNewHabitModal:(NSString *)goalTitle;
 @end
 
 @interface NewHabitViewController : UIViewController

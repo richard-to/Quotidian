@@ -12,6 +12,7 @@
 #import "DailyTableCell.h"
 #import "NewHabitViewController.h"
 #import "DailyTableViewController.h"
+#import "HabitDetailViewController.h"
 #import <CoreData/CoreData.h>
 
 int const NUM_SECTIONS = 2;
@@ -63,7 +64,6 @@ NSString *const COMPLETED_CELL_ID = @"Todo Cell";
 {
     [super didReceiveMemoryWarning];
 }
-
 
 #pragma mark - Helpers
 
@@ -139,7 +139,7 @@ NSString *const COMPLETED_CELL_ID = @"Todo Cell";
 
 #pragma mark - New Habit View Controller Delegate
 
-- (void)didDismissModal:(NSString *)goalTitle
+- (void)didDismissNewHabitModal:(NSString *)goalTitle
 {
     if ([goalTitle length] > 0 && self.document.documentState == UIDocumentStateNormal) {
         Goal *goal = [Goal goalWithDefaults:goalTitle inManagedObjectContext:self.context];
@@ -150,6 +150,11 @@ NSString *const COMPLETED_CELL_ID = @"Todo Cell";
     [self dismissViewControllerAnimated:YES completion: nil];
 }
 
+#pragma mark - New Habit View Controller Delegate
+- (void)didDismissDetailModal
+{
+    [self dismissViewControllerAnimated:YES completion: nil];
+}
 
 #pragma mark - Mutators/Accessors
 
@@ -243,7 +248,8 @@ NSString *const COMPLETED_CELL_ID = @"Todo Cell";
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {     
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    /*
     if (indexPath.section == SECTION_TODO) {
         Goal *goal = [self.todoList objectAtIndex:indexPath.row];
         [Goal completedGoal:goal inManagedObjectContext:self.context];
@@ -252,7 +258,7 @@ NSString *const COMPLETED_CELL_ID = @"Todo Cell";
         Goal *goal = [self.completedList objectAtIndex:indexPath.row];
         [Goal undoCompletedGoal:goal inManagedObjectContext:self.context];
         [self moveGoalToToDo:goal];
-    }
+    }*/
 }
 
 /*
@@ -299,9 +305,21 @@ NSString *const COMPLETED_CELL_ID = @"Todo Cell";
  
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
  {
-     if ([segue.identifier isEqualToString:@"New Goal"]) {
-         NewHabitViewController *quotidianViewController = [segue destinationViewController];
-         quotidianViewController.delegate = self;
+     if ([segue.identifier isEqualToString:@"Detail Segue"]) {
+         HabitDetailViewController *habitDetailViewController = [segue destinationViewController];
+         habitDetailViewController.delegate = self;
+         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+         Goal *goal = nil;
+         if (indexPath.section == SECTION_TODO) {
+             goal =[self.todoList objectAtIndex:indexPath.row];
+         } else if (indexPath.section == SECTION_COMPLETED) {
+             goal =[self.completedList objectAtIndex:indexPath.row];
+         }
+         habitDetailViewController.goal = goal;
+         habitDetailViewController.date = [NSDate date];
+     } else if ([segue.identifier isEqualToString:@"New Goal"]) {
+         NewHabitViewController *newHabitViewController = [segue destinationViewController];
+         newHabitViewController.delegate = self;
      }
 
  }

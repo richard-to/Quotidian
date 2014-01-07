@@ -9,7 +9,6 @@
 #import "DailyTableCell.h"
 
 // TODO(richard-to): Should make this more dynamic at some point.
-
 typedef struct {
     CGFloat hue;
     CGFloat saturation;
@@ -115,6 +114,12 @@ const hsba dangerDetail = {
     1.0
 };
 
+@interface DailyTableCell ()
+@property (strong, nonatomic) UIColor *bgColor;
+@property (strong, nonatomic) UIColor *titleColor;
+@property (strong, nonatomic) UIColor *detailColor;
+@end
+
 @implementation DailyTableCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -126,10 +131,23 @@ const hsba dangerDetail = {
     return self;
 }
 
+// TODO(richard-to): Handle Select Cell Color Styles better
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
+    self.contentView.backgroundColor = self.bgColor;
+    self.titleLabel.textColor = self.titleColor;
+    self.detailLabel.textColor = self.detailColor;
 }
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+    [super setHighlighted:highlighted animated:animated];
+    self.contentView.backgroundColor = self.bgColor;
+    self.titleLabel.textColor = self.titleColor;
+    self.detailLabel.textColor = self.detailColor;
+}
+
 
 // TODO(richard-to): Remove hardcoded stuff
 - (void)colorFromStreak:(NSNumber *)streak
@@ -167,6 +185,9 @@ const hsba dangerDetail = {
     self.contentView.backgroundColor = bgColor;
     self.titleLabel.textColor = titleColor;
     self.detailLabel.textColor = detailColor;
+    self.bgColor = bgColor;
+    self.titleColor = titleColor;
+    self.detailColor = detailColor;
 }
 
 
@@ -176,4 +197,5 @@ const hsba dangerDetail = {
 {
     return [UIColor colorWithHue:color.hue saturation:color.saturation brightness:color.brightness alpha: color.alpha];
 }
+
 @end
