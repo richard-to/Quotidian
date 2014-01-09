@@ -27,6 +27,7 @@
 		EFDA4AD9186B9AA300E2C7D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFDA4AD7186B9AA300E2C7D6 /* InfoPlist.strings */; };
 		EFDA4ADB186B9AA300E2C7D6 /* QuotidianTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA4ADA186B9AA300E2C7D6 /* QuotidianTests.m */; };
 		EFDA4AE6186BA02B00E2C7D6 /* DailyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA4AE5186BA02B00E2C7D6 /* DailyTableViewController.m */; };
+		EFDEB6F3187E8F1C00F6F509 /* BarGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB6F2187E8F1C00F6F509 /* BarGraphView.m */; };
 		EFEE774818716B9A00D2F922 /* Goal+Addon.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE774718716B9A00D2F922 /* Goal+Addon.m */; };
 		EFEE774B18719AA900D2F922 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE774A18719AA900D2F922 /* Util.m */; };
 		EFEE774E1872454400D2F922 /* CompletedGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE774D1872454400D2F922 /* CompletedGoal.m */; };
@@ -73,6 +74,8 @@
 		EFDA4ADA186B9AA300E2C7D6 /* QuotidianTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuotidianTests.m; sourceTree = "<group>"; };
 		EFDA4AE4186BA02B00E2C7D6 /* DailyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyTableViewController.h; sourceTree = "<group>"; };
 		EFDA4AE5186BA02B00E2C7D6 /* DailyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyTableViewController.m; sourceTree = "<group>"; };
+		EFDEB6F1187E8F1C00F6F509 /* BarGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarGraphView.h; sourceTree = "<group>"; };
+		EFDEB6F2187E8F1C00F6F509 /* BarGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarGraphView.m; sourceTree = "<group>"; };
 		EFEE774618716B9A00D2F922 /* Goal+Addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Goal+Addon.h"; sourceTree = "<group>"; };
 		EFEE774718716B9A00D2F922 /* Goal+Addon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Goal+Addon.m"; sourceTree = "<group>"; };
 		EFEE774918719AA900D2F922 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				EF2E20F7187A706F00C70311 /* HabitDetailViewController.m */,
 				EF2E20F9187A883400C70311 /* DayCheckView.h */,
 				EF2E20FA187A883400C70311 /* DayCheckView.m */,
+				EFDEB6F1187E8F1C00F6F509 /* BarGraphView.h */,
+				EFDEB6F2187E8F1C00F6F509 /* BarGraphView.m */,
 			);
 			path = Quotidian;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				EF2E20FB187A883400C70311 /* DayCheckView.m in Sources */,
 				EFDA4AB9186B9AA300E2C7D6 /* main.m in Sources */,
 				EFEE774818716B9A00D2F922 /* Goal+Addon.m in Sources */,
+				EFDEB6F3187E8F1C00F6F509 /* BarGraphView.m in Sources */,
 				EFDA4AE6186BA02B00E2C7D6 /* DailyTableViewController.m in Sources */,
 				EFEE774B18719AA900D2F922 /* Util.m in Sources */,
 				EF43DB4A1870DF3700FE9DB5 /* DailyTableCell.m in Sources */,
